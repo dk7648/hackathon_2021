@@ -19,12 +19,10 @@
                     <li><a href="{% url 'profileapp:create' %}"
                            class="nav-link px-2 text-white"><span>profile create</span></a></li>
                     {% endif %}
-                        <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white"><span>원룸게시글</span></a></li>
-                        <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white"><span>리뷰게시판</span></a>
-                        <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">ROOMLIST</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
-                        <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">ROOMCOMMUNITY</a></li>
-                        <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>mypage</span></a></li>
+                        <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white"><span>자취방 리뷰</span></a>
+                        <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">자취방 목록</a></li>
+                        <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">자취방 커뮤니티</a></li>
+                        <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>내정보</span></a></li>
                         <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>logout</span></a></li>
                     {% else %}
                     <a href="{% url 'accountapp:create' %}"

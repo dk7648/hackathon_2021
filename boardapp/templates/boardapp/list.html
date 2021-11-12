@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h4>내 원룸 게시판</h4>
+        <div style="margin: 1.8rem">
+        <h4> ■ 원룸 커뮤니티</h4>
 
-        <a href="{% url 'boardapp:create' %}">
+        <button href="{% url 'boardapp:create' %}" style="width: 7.5rem; height: 4.0rem;">
             <div>글쓰기</div>
-        </a>
-
-        {% for post in post_list %}
-        <div>
-            제목 : <a href="{% url 'boardapp:detail' pk=post.pk%}">{{post.title}}</a>
-            <div>
-                {% include 'user_data.html' %}
-            </div>
-            <div>요약 : {{ post.summary | safe }}</div>
+        </button    >
 
         </div>
+        {% for post in post_list %}
+        <div class="feature col" style="margin: 1.8rem">
+            <h2 style="color: black">{{post.title}}</h2>
+            <p style="color: gray; width: 45rem">{% include 'user_data.html' %}</p>
+            <p style="color: gray; width: 45rem">{{post.content}}</p>
+            <a href="{% url 'reviewapp:detail' pk=post.pk%}" class="icon-link" style="float:right; width: 70rem">
+                ▶ 게시물 상세보기
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+        </div>
+        <br>
         {% endfor %}
-    </div>
-</div>
 <br><br>
 {% include 'page.html' %}
 {% endblock %}
