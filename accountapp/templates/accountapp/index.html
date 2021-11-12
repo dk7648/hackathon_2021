@@ -1,14 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
-    <h4>메인 페이지</h4>
-
-    {% for review in review_list %}
-        <div>
-            원룸 : {{review.room}} 날짜 : {{review.created_at}}<br>
-            {{review.content}}
-        </div><br><br>
-    {% endfor %}
-
+    <div style="text-align: center; margin: 2rem">
+            <img src="https://www.acon3d.com/data/goods/20/05/22/1000001763/1000001763_detail_083.PNG" style="width:400; height:400">
+            <h2>당신이 원하는 자취방</h2>
+            <h1>방을 구한다 ! 방 구 방 구</h1>
+        </div>
 </div>
 {% endblock %}

@@ -2,21 +2,26 @@
 {% block content %}
 
 
-제목: {{target_post.title}}<br>
-글쓴이 : {{target_post.writer}}<br>
-내용 : {{target_post.content | safe}}<br>
-
+<div class="feature col" style="margin: 1.8rem">
+    <h2>제목: {{target_post.title}}</h2>
+    글쓴이 : {{target_post.writer}}<br>
+    내용 : {{target_post.content | safe}}<br>
+    <a href="{% url 'boardapp:list' %}">목록</a>
+</div>
 <!--목록 가기-->
-<a href="{% url 'boardapp:list' %}">목록</a>
 
 
+
+<div class="feature col" style="margin: 1.8rem">
 <!--   댓글 쓰기 -->
 {% include 'commentapp/create.html' with board=target_post %}<br>
 Comment<br>
+</div>
 
+<div class="feature col" style="margin: 1.8rem">
 <!--    댓글 리스트 -->
 {% for comment in comment_list %}
 {% include 'commentapp/detail.html' %}
 {% endfor %}
-
+</div>
 {% endblock %}

@@ -14,20 +14,18 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">ROOMLIST</a></li>
-                    <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
-                    <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">ROOMCOMMUNITY</a></li>
-                    <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>MYPAGE</span></a></li>
-                    <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>LOGOUT</span></a></li>
+                    <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white"><span>자취방 리뷰</span></a>
+                    <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">자취방 목록</a></li>
+                    <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">자취방 커뮤니티</a></li>
+                    <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>내정보</span></a></li>
+                    <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>logout</span></a></li>
                     {% else %}
                     <a href="{% url 'accountapp:create' %}"
                        class="nav-link px-2 text-white"><span>SIGN IN</span></a></li>
                     <a href="{% url 'accountapp:login' %}" class="nav-link px-2 text-white"><span>LOGIN</span></a></li>
                     {% endif %}
-
-
                 </ul>
             </div>
-
         </div>
+    </div>
 </header>

@@ -11,7 +11,7 @@ from roomapp.models import Room
 class RoomIndexView(ListView):
     model = Room
     context_object_name = 'room_list'
-    template_name = 'roomapp/roomlist.html'
+    template_name = 'roomapp/list.html'
 
 
 class RoomCreateView(CreateView):

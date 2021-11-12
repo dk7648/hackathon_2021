@@ -2,8 +2,11 @@
 {% block content %}
 
 
-{% for room in room_list %}
-    {{room.name}}, {{room.pk}}<br>
-    <a href="{% url 'roomapp:create' %}">방 전달</a>
-{% endfor %}
+    원룸<br>
+    소개<br>
+    <a href="{% url 'roomapp:create' %}">방 등록</a><br><br>
+
+    원룸<br>
+    소개<br>
+    <a href="{% url 'roomapp:create' %}">방 등록</a><br>
 {% endblock %}
