@@ -1,0 +1,8 @@
+.title_logo{
+    font-family: 'Cute Font', cursive;
+    }
+
+a:hover { /* 링크에 커서를 올렸을 때 */
+    color: black;
+    text-decoration: none;
+    }
