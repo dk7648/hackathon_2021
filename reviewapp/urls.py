@@ -1,3 +1,4 @@
+
 from django.urls import path
 
 from reviewapp.views import ReviewCreateView, ReviewUpdateView, ReviewDetailView, ReviewDeleteView, ReviewListView

@@ -13,7 +13,7 @@
         {% endif %}
         <a href="#"><span>원룸정보</span></a>
         <a href="{% url 'boardapp:list' %}"><span>원룸게시글</span></a>
-        <a href="#"><span>리뷰게시판</span></a>
+        <a href="{% url 'reviewapp:list' %}"><span>리뷰게시판</span></a>
         {% else %}
         <a href="{% url 'accountapp:create' %}"><span>Sign in</span></a>
         <a href="{% url 'accountapp:login' %}"><span>login</span></a>

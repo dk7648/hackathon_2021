@@ -1,17 +1,15 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
-
-# Create your views here.
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DeleteView, ListView, DetailView, UpdateView
-from django.views.generic.edit import FormMixin
+from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic.edit import FormMixin, UpdateView, DeleteView
 
 from commentapp.forms import CommentCreationForm
 from commentapp.models import Comment
-from reviewapp.decorators import review_ownership_required, LoginRequired
-from reviewapp.forms import ReviewCreationForm
+from reviewapp.decorators import LoginRequired, review_ownership_required
+from reviewapp.form import ReviewCreationForm
 from reviewapp.models import Review
 
 
@@ -28,24 +26,18 @@ class ReviewCreateView(CreateView):
         temp_review.save()
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        return super(ReviewCreateView, self).get_context_data(user=self.request.user, **kwargs)
     def get_success_url(self):
         return reverse('reviewapp:detail', kwargs={'pk': self.object.pk})
 
 
-
-class ReviewDetailView(LoginRequired, DetailView, FormMixin):
+class ReviewDetailView(LoginRequired, DetailView):
     login_url = '/accounts/login/'
     model = Review
     form_class = CommentCreationForm
     context_object_name = 'target_post'
     template_name = 'reviewapp/detail.html'
-
-    def get_context_data(self, **kwargs):
-        comment_list = Comment.objects.filter(review=self.object.pk).order_by('-created_at')
-        # if user.is_authenticated: #로그인 했는가?
-        # join = Join.objects.filter(user=user, project=project)
-        # object_list = Post.object(project=self.get_object())
-        return super(ReviewDetailView, self).get_context_data(comment_list=comment_list, **kwargs)
 
 
 @method_decorator(review_ownership_required, 'get')
@@ -84,4 +76,3 @@ class ReviewListView(LoginRequired, ListView):
         queryset = paginator.get_page(page)
 
         return queryset
-

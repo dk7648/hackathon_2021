@@ -23,6 +23,7 @@ from accountapp.views import AccountIndexView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', AccountIndexView.as_view(), name='index'),
+
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('boards/', include('boardapp.urls')),

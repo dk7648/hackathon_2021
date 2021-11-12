@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h4>내 원룸 게시판</h4>
+<h4>원룸 리뷰</h4>
 
         <a href="{% url 'reviewapp:create' %}">
             <div>글쓰기</div>
@@ -9,13 +9,13 @@
 
         {% for post in post_list %}
         <div>
-            제목 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.title}}</a>
+            원룸 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.room}}</a>
             <div>
                 {% include 'user_data.html' %}
             </div>
             <div>요약 : {{ post.summary | safe }}</div>
 
-        </div>
+        </div><br>
         {% endfor %}
     </div>
 </div>
