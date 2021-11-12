@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h4>원룸 리뷰</h4>
+        <div style="margin: 1.8rem">
+            <h4> ■ 원룸 리뷰</h4>
 
-        <a href="{% url 'reviewapp:create' %}">
-            <div>글쓰기</div>
-        </a>
-
+            <button href="{% url 'reviewapp:create' %}"; style="width: 7.5rem; height: 4.0rem;">
+                <div>리뷰 쓰기</div>
+            </button>
+        </div>
         {% for post in post_list %}
-        <div>
-            원룸 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.room}}</a>
-            <div>
-                {% include 'user_data.html' %}
-            </div>
-            <div>요약 : {{ post.summary | safe }}</div>
-
-        </div><br>
+        <div class="feature col" style="margin: 1.8rem">
+            <h2 style="color: black">{{post.room}}</h2>
+            <p style="color: gray; width: 45rem">요약 : {{ post.summary | safe }}</p>
+            <p style="color: gray; width: 45rem">{{post.content}}</p>
+            <a href="{% url 'reviewapp:detail' pk=post.pk%}" class="icon-link" style="float:right; width: 70rem">
+                ▶ 원룸 정보 상세보기
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+        </div>
+        <br>
         {% endfor %}
     </div>
 </div>

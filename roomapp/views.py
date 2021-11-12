@@ -10,8 +10,23 @@ from roomapp.models import Room
 class RoomIndexView(ListView):
     model = Room
     context_object_name = 'target_room'
-    template_name = 'roomapp/roomlist.html'
+    template_name = 'roomapp/list.html'
 
+# class ReviewListView(LoginRequired, ListView):
+#     login_url = '/accounts/login/'
+#     model = Review
+#     context_object_name = 'post_list'
+#     # ordering = ['-id']
+#     template_name = 'reviewapp/list.html'
+#
+#     def get_queryset(self):
+#         all_list = Review.objects.filter().order_by('-id')
+#
+#         page = int(self.request.GET.get('page', 1))
+#         paginator = Paginator(all_list, 4)
+#         queryset = paginator.get_page(page)
+#
+#         return queryset
 
 class RoomCreateView(CreateView):
     model = Room
