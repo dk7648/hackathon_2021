@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h4>프로필페이지, accountapp:detail</h4>
+    {% if target_user == user %}
+    본인입니다.<br>
+    {% endif %}
+
+    {% if target_user.profile %}
+    {{target_user.profile.name}}
+    {{target_user.profile.number}}
+    {% else %}
+    No Profile
+    {% endif %}
+    <br>
+    {{target_user.room.name}}
+
+</div>
+{% endblock %}

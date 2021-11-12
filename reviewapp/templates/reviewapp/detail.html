@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+글쓴이 : {{target_post.writer}}<br>
+내용 : {{target_post.content | safe}}<br>
+
+<!--목록 가기-->
+<a href="{% url 'reviewapp:list' %}">목록</a>
+
+{% endblock %}

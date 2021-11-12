@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    {% include 'head.html' %}
+    <body>
+        <div style="flex: 1">
+            {% include 'header.html' %}
+        </div>
+
+        <div>
+            <hr><hr>
+            test
+            {% block content %}
+            {% endblock %}
+            <hr><hr>
+        </div>
+
+        <div style="margin-top: 1.5rem; flex: 1">
+            {% include 'footer.html' %}
+        </div>
+    </body>
+</html>

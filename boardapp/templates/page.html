@@ -1,0 +1,36 @@
+<!-- pagination -->
+<div>
+    {% if post_list.number != 1 %}
+    <a href="{{ request.path }}?page=1">
+      &lt;
+    </a>
+    {% endif %}
+    {% if 1 <= post_list.number|add:-2 %}
+    <a href="{{ request.path }}?page={{post_list.previous_page_number|add:-1 }}">
+      {{post_list.previous_page_number|add:-1 }}
+    </a>
+    {% endif %}
+    {% if post_list.has_previous %}
+    <a href="{{ request.path }}?page={{post_list.previous_page_number }}">
+      {{post_list.previous_page_number }}
+    </a>
+    {% endif %}
+    <a href="{{ request.path }}?page={{post_list.number}}">
+      {{post_list.number}}
+    </a>
+    {% if post_list.has_next %}
+    <a href="{{ request.path }}?page={{post_list.next_page_number }}">
+      {{post_list.next_page_number }}
+    </a>
+    {% endif %}
+    {% if post_list.paginator.num_pages >= post_list.number|add:+2 %}
+    <a href="{{ request.path }}?page={{post_list.next_page_number|add:+1 }}">
+      {{post_list.next_page_number|add:+1 }}
+    </a>
+    {% endif %}
+    {% if post_list.number != post_list.paginator.num_pages %}
+    <a href="{{ request.path }}?page={{post_list.paginator.num_pages}}">
+      >
+    </a>
+    {% endif %}
+</div>

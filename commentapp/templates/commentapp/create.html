@@ -1,0 +1,13 @@
+{% block content %}
+
+<div class="w-form">
+    <form action="{% url 'commentapp:create' %}" method="post" enctype="multipart/form-data" id="wf-form-commnet-form" name="wf-form-commnet-form" data-name="commnet form">
+        {% csrf_token %}
+        <textarea required id="id_content" name="content" maxlength="5000" id="field" placeholder="댓글을 써주세요!" class="w-input"></textarea>
+        <div class="blog1-button-wrap">
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait...">
+            <input type="hidden" name="board_pk" value="{{board.pk}}">
+        </div>
+    </form>
+</div>
+{% endblock %}
