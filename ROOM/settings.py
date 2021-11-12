@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'commentapp',
     'boardapp',
     'roomapp',
+    'reviewapp',
 
     'ckeditor',
 ]

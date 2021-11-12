@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h4>내 원룸 게시판</h4>
+
+        <a href="{% url 'reviewapp:create' %}">
+            <div>글쓰기</div>
+        </a>
+
+        {% for post in post_list %}
+        <div>
+            제목 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.title}}</a>
+            <div>
+                {% include 'user_data.html' %}
+            </div>
+            <div>요약 : {{ post.summary | safe }}</div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br><br>
+{% include 'page.html' %}
+{% endblock %}

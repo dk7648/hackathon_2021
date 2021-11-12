@@ -1,0 +1,10 @@
+<div class="text-label">게시일 : {{post.created_at}}</div>
+<div class="text-label">글쓴이 :
+    {% if post.writer.profile %}
+    {{post.writer.profile.name}}
+    {% elif post.writer %}
+    {{post.writer}}
+    {% else %}
+    알수없음
+    {% endif %}
+</div>

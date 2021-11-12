@@ -2,7 +2,7 @@ from django.urls import path
 
 from boardapp.views import BoardCreateView, BoardUpdateView, BoardDetailView, BoardDeleteView, BoardListView
 
-app_name = "boardapp"
+app_name = "reviewapp"
 
 urlpatterns = [
     path('create/', BoardCreateView.as_view(), name='create'),
