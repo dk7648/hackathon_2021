@@ -1,11 +1,16 @@
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView
 
 from roomapp.decorators import room_ownership_required
 from roomapp.forms import RoomCreationForm
 from roomapp.models import Room
 
+
+class RoomIndexView(ListView):
+    model = Room
+    context_object_name = 'target_room'
+    template_name = 'roomapp/roomlist.html'
 
 class RoomCreateView(CreateView):
     model = Room

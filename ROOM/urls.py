@@ -19,10 +19,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 from accountapp.views import AccountIndexView
+from roomapp.views import RoomIndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', AccountIndexView.as_view(), name='index'),
+
+    path('test/', RoomIndexView.as_view(), name='roomlist'),
+
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('boards/', include('boardapp.urls')),
