@@ -50,6 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accountapp',
+    'profileapp',
+    'commentapp',
+    'boardapp',
+    'roomapp',
+
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +155,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#ckeditor
+CKEDITOR_CONFIGS = {
+  'default': {
+      'toolbar': 'full',
+      'extraPlugins': ','.join(
+          [
+              'codesnippet',
+          ]
+      ),
+      'codeSnippet_theme': 'monokai_sublime',
+  },
+}

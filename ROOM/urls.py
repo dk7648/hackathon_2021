@@ -24,4 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', AccountIndexView.as_view(), name='index'),
     path('accounts/', include('accountapp.urls')),
+    path('profiles/', include('profileapp.urls')),
+    path('boards/', include('boardapp.urls')),
+    path('rooms/', include('roomapp.urls')),
+    path('comments/', include('commentapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

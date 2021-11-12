@@ -6,7 +6,14 @@
         {% if user.is_authenticated %}
         {{ user }}님 환영합니다.
         <a href="{% url 'accountapp:logout' %}"><span>logout</span></a>
+        <a href="{% url 'accountapp:detail' pk=user.pk %}"><span>mypage</span></a>
+
+        {% if not user.profile %}
         <a href="{% url 'profileapp:create' %}"><span>profile create</span></a>
+        {% endif %}
+        <a href="#"><span>원룸정보</span></a>
+        <a href="{% url 'boardapp:list' %}"><span>원룸게시글</span></a>
+        <a href="#"><span>리뷰게시판</span></a>
         {% else %}
         <a href="{% url 'accountapp:create' %}"><span>Sign in</span></a>
         <a href="{% url 'accountapp:login' %}"><span>login</span></a>

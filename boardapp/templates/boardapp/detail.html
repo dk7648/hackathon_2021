@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+제목: {{target_post.title}}<br>
+글쓴이 : {{target_post.writer}}<br>
+내용 : {{target_post.content | safe}}<br>
+
+<!--목록 가기-->
+<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
+
+<!--   댓글 쓰기 -->
+{% include 'commentapp/create.html' with board=target_post %}<br>
+Comment<br>
+
+<!--    댓글 리스트 -->
+{% for comment in comment_list %}
+{% include 'commentapp/detail.html' %}
+{% endfor %}
+
+{% endblock %}

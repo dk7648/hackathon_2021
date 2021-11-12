@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1>please make your profile</h1>
+    <a href="{% url 'profileapp:create' %}">프로필 생성</a>
+    <a onclick="history.go(-1)">
+        <div>
+                <div>Back</div>
+        </div>
+    </a>
+</div>
+
+{% endblock %}
