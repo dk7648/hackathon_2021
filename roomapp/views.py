@@ -12,6 +12,7 @@ class RoomIndexView(ListView):
     context_object_name = 'target_room'
     template_name = 'roomapp/roomlist.html'
 
+
 class RoomCreateView(CreateView):
     model = Room
     context_object_name = 'target_room'
