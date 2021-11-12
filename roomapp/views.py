@@ -22,6 +22,7 @@ class RoomCreateView(CreateView):
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk':self.object.user.pk})
 
+
 @method_decorator(room_ownership_required, 'get')
 @method_decorator(room_ownership_required, 'post')
 class RoomUpdateView(UpdateView):
