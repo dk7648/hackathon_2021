@@ -2,11 +2,12 @@
 {% block content %}
 
 
-<div>
-    글쓴이 : {{target_post.writer}}<br>
-</div>
-<div>
-    내용 : {{target_post.content | safe}}<br>
+<div class="feature col" style="margin: 1.8rem">
+    <h2 style="color: black">{{target_post.writer}} 의 리뷰</h2>
+
+    <div>
+        내용 : {{target_post.content | safe}}<br>
+    </div>
 </div>
 
 <!--목록 가기-->
