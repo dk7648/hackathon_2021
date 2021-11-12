@@ -6,7 +6,7 @@
     </div>
     <form action="{% url 'roomapp:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        <tr><th><label for="id_name">원룸 이름 : </label></th><td><input type="text" name="name" maxlength="20" required id="id_name"></td></tr>
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
     </form>
 </div>

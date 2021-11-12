@@ -14,18 +14,11 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
                     {% if user.is_authenticated %}
-
-                    {% if not user.profile %}
-                    <li><a href="{% url 'profileapp:create' %}"
-                           class="nav-link px-2 text-white"><span>profile create</span></a></li>
-                    {% endif %}
-                    <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white"><span>원룸게시글</span></a></li>
-                    <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white"><span>리뷰게시판</span></a>
                     <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">ROOMLIST</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
+                    <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
                     <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">ROOMCOMMUNITY</a></li>
-                    <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>mypage</span></a></li>
-                    <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>logout</span></a></li>
+                    <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>MYPAGE</span></a></li>
+                    <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>LOGOUT</span></a></li>
                     {% else %}
                     <a href="{% url 'accountapp:create' %}"
                        class="nav-link px-2 text-white"><span>Sign in</span></a></li>

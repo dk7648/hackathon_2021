@@ -1,5 +1,7 @@
+from django.contrib.auth.mixins import AccessMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
+from django.shortcuts import render
 
 from roomapp.models import Room
 

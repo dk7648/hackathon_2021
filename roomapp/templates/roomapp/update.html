@@ -7,7 +7,8 @@
     </div>
     <form action="{% url 'roomapp:update' pk=target_room.pk %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        <textarea>{{form}}</textarea>
+        {{form}}
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
     </form>
 </div>
