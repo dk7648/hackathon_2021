@@ -16,6 +16,8 @@ from pathlib import Path
 import environ
 import os
 
+from django.urls import reverse_lazy
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -54,6 +56,8 @@ INSTALLED_APPS = [
     'commentapp',
     'boardapp',
     'roomapp',
+    'reviewapp',
+  
     'ckeditor',
     'bootstrap4',
 ]
@@ -168,3 +172,6 @@ CKEDITOR_CONFIGS = {
       'codeSnippet_theme': 'monokai_sublime',
   },
 }
+
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')

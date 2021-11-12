@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="elements-section-headline-wrap yellow">
+    <div id="Hero" class="section detail">
+        <div class="blog1-headline-wrap detail_page">
+            <div class="size3-text post">Post<br></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="w-form">
+        <form action="{% url 'reviewapp:create' %}" method="post" enctype="multipart/form-data" id="email-form"
+              name="email-form" data-name="Email Form">
+            {% csrf_token %}
+            <tr><th><label for="id_type">별점:</label></th><td><select name="type" required id="id_type">
+          <option value="" selected>---------</option>
+
+          <option value="5점">5점</option>
+
+          <option value="4점">4점</option>
+
+          <option value="3점">3점</option>
+
+          <option value="2점">2점</option>
+
+          <option value="1점">1점</option>
+
+        </select></td></tr>
+        <tr><th><label for="id_room">Room:</label></th><td><input type="text" value="{{user.room.name}}" name="room" maxlength="20" required id="id_room" readonly></td></tr>
+        <tr><th><label for="id_content">Content:</label></th><td><input type="text" name="content" maxlength="500" required id="id_content"></td></tr>
+            <input type="submit" value="제출">
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}
