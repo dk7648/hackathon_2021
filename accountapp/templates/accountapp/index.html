@@ -1,17 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-        {% block content %}
-        메인페이지!!!
-        {% endblock %}
-        {% include 'base.html' %}
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h4>메인 페이지</h4>
 
-</body>
-</html>
+    {% for review in review_list %}
+        <div>
+            원룸 : {{review.room}} 날짜 : {{review.created_at}}<br>
+            {{review.content}}
+        </div><br><br>
+    {% endfor %}
+
+</div>
+{% endblock %}

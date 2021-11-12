@@ -10,9 +10,9 @@ class Review(models.Model):
     room = models.CharField(max_length=20, null=True)
     content = models.CharField(max_length=500, null=True)
 
-    type_choice = [('5점', '5점'), ('4점', '4점'), ('3점', '3점'), ('2점', '2점'),
+    rate_choice = [('5점', '5점'), ('4점', '4점'), ('3점', '3점'), ('2점', '2점'),
                    ('1점', '1점')]
-    type = models.CharField(max_length=10, choices=type_choice, null=True)
+    rate = models.CharField(max_length=10, choices=rate_choice, null=True)
 
     created_at = models.DateField(auto_now_add=True, null=True)
 

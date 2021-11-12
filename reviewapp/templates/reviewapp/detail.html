@@ -2,6 +2,25 @@
 {% block content %}
 
 
+<div>
+            글쓴이 : {{target_post.writer}}<br>
+            원룸 : {{target_post.room}}<br>
+            별점 :
+            {% if target_post.rate == '5점' %}
+            ★★★★★
+            {% elif target_post.rate == '4점' %}
+            ★★★★☆
+            {% elif target_post.rate == 3 %}
+            ★★★☆☆
+            {% elif target_post.rate == 2 %}
+            ★★☆☆☆
+            {% else %}
+            ★☆☆☆☆
+            {% endif %}
+            <div>요약 : {{ target_post.content }}</div>
+
+        </div><br>
+
 글쓴이 : {{target_post.writer}}<br>
 내용 : {{target_post.content | safe}}<br>
 

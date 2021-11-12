@@ -9,7 +9,19 @@
 
         {% for post in post_list %}
         <div>
-            원룸 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.room}}</a>
+            원룸 : <a href="{% url 'reviewapp:detail' pk=post.pk%}">{{post.room}}</a><br>
+            별점 :
+            {% if post.rate == '5점' %}
+            ★★★★★
+            {% elif post.rate == '4점' %}
+            ★★★★☆
+            {% elif post.rate == 3 %}
+            ★★★☆☆
+            {% elif post.rate == 2 %}
+            ★★☆☆☆
+            {% else %}
+            ★☆☆☆☆
+            {% endif %}
             <div>
                 {% include 'user_data.html' %}
             </div>

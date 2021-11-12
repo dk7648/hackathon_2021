@@ -3,7 +3,8 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center">
             <div style="flex: 1">
                 <a href="{% url 'index' %}" style="text-align:center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-wind" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-wind"
+                         viewBox="0 0 16 16">
                         <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
                     </svg>
                     <h1 style="color:white">방구방구</h1>
@@ -11,23 +12,22 @@
             </div>
             <div style="flex: 2">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">ROOMLIST</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">ROOMCOMMUNITY</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">DEF</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'roomapp:list' %}" class="nav-link px-2 text-white">ROOMLIST</a></li>
+                    <li><a href="{% url 'reviewapp:list' %}" class="nav-link px-2 text-white">ROOMREVIEW</a></li>
+                    <li><a href="{% url 'boardapp:list' %}" class="nav-link px-2 text-white">ROOMCOMMUNITY</a></li>
+                    <li><a href="{% url 'accountapp:detail' pk=user.pk %}" class="nav-link px-2 text-white"><span>MYPAGE</span></a></li>
+                    <li><a href="{% url 'accountapp:logout' %}" class="nav-link px-2 text-white"><span>LOGOUT</span></a></li>
+                    {% else %}
+                    <a href="{% url 'accountapp:create' %}"
+                       class="nav-link px-2 text-white"><span>Sign in</span></a></li>
+                    <a href="{% url 'accountapp:login' %}" class="nav-link px-2 text-white"><span>login</span></a></li>
+                    {% endif %}
+
+
                 </ul>
             </div>
 
-        {% if not user.profile %}
-        <a href="{% url 'profileapp:create' %}"><span>profile create</span></a>
-        {% endif %}
-        <a href="#"><span>원룸정보</span></a>
-        <a href="{% url 'boardapp:list' %}"><span>원룸게시글</span></a>
-        <a href="{% url 'reviewapp:list' %}"><span>리뷰게시판</span></a>
-        {% else %}
-        <a href="{% url 'accountapp:create' %}"><span>Sign in</span></a>
-        <a href="{% url 'accountapp:login' %}"><span>login</span></a>
-        {% endif %}
-    </div>
+        </div>
 </header>

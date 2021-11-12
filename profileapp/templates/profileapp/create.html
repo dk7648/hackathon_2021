@@ -6,7 +6,8 @@
     </div>
     <form action="{% url 'profileapp:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
+        <tr><th><label for="id_name">유저 이름:</label></th><td><input type="text" name="name" maxlength="20" required id="id_name"></td></tr><br>
+        <tr><th><label for="id_number">휴대폰 번호:</label></th><td><input type="text" name="number" maxlength="15" required id="id_number"></td></tr>
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
     </form>
 </div>

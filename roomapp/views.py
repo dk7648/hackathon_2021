@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView, ListView
 
+from reviewapp.decorators import LoginRequired
 from roomapp.decorators import room_ownership_required
 from roomapp.forms import RoomCreationForm
 from roomapp.models import Room
@@ -9,13 +10,12 @@ from roomapp.models import Room
 
 class RoomIndexView(ListView):
     model = Room
-    context_object_name = 'target_room'
+    context_object_name = 'room_list'
     template_name = 'roomapp/roomlist.html'
 
 
 class RoomCreateView(CreateView):
     model = Room
-    context_object_name = 'target_room'
     form_class = RoomCreationForm
     template_name = 'roomapp/create.html'
 

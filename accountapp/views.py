@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
+from reviewapp.models import Review
 
 has_ownership = [account_ownership_required, login_required]
 
@@ -19,6 +20,10 @@ class AccountIndexView(ListView):
     context_object_name = 'user_list'
     template_name = 'accountapp/index.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        review_list = Review.objects.filter().order_by('-id')[:3]
+
+        return super(AccountIndexView, self).get_context_data(review_list=review_list, **kwargs)
 
 class AccountCreateView(CreateView):
     model = User
