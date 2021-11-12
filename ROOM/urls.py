@@ -32,4 +32,6 @@ urlpatterns = [
     path('boards/', include('boardapp.urls')),
     path('rooms/', include('roomapp.urls')),
     path('comments/', include('commentapp.urls')),
+    path('reviews/', include('reviewapp.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

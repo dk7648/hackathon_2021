@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'commentapp',
     'boardapp',
     'roomapp',
+    'reviewapp',
+  
     'ckeditor',
     'bootstrap4',
 ]

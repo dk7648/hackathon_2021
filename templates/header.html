@@ -19,18 +19,15 @@
                 </ul>
             </div>
 
-            <div style="flex: 1">
-                {% if user.is_authenticated %}
-                    {{ user }}님 환영합니다.
-                    <a href="{% url 'accountapp:logout' %}"><span>logout</span></a>
-                    <a href="{% url 'profileapp:create' %}"><span>profile create</span></a>
-                {% else %}
-                    <div class="text-end">
-                      <button type="button" class="btn btn-outline-light me-2" onclick=location.href="{% url 'accountapp:login' %}">Login</button>
-                      <button type="button" class="btn btn-warning" onclick=location.href="{% url 'accountapp:create' %}">Sign-up</button>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
+        {% if not user.profile %}
+        <a href="{% url 'profileapp:create' %}"><span>profile create</span></a>
+        {% endif %}
+        <a href="#"><span>원룸정보</span></a>
+        <a href="{% url 'boardapp:list' %}"><span>원룸게시글</span></a>
+        <a href="{% url 'reviewapp:list' %}"><span>리뷰게시판</span></a>
+        {% else %}
+        <a href="{% url 'accountapp:create' %}"><span>Sign in</span></a>
+        <a href="{% url 'accountapp:login' %}"><span>login</span></a>
+        {% endif %}
     </div>
 </header>
