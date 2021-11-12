@@ -1,22 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h4>원룸 리스트</h4>
-    <a href="{% url 'roomapp:create' %}">
+<div style="margin: 1.8rem">
+    <h4> ■ 원룸 리스트</h4>
+    <button href="{% url 'roomapp:create' %}" style="width: 7.5rem; height: 4.0rem;">
         <div>원룸 추가하기</div>
-    </a>
-
-    {% for post in post_list %}
-    <div>
-        제목 : <a href="{% url 'boardapp:detail' pk=post.pk%}">{{post.title}}</a>
-        <div>
-            {% include 'user_data.html' %}
-        </div>
-        <div>요약 : {{ post.summary | safe }}</div>
-    </div>
-    {% endfor %}
-    </div>
+    </button>
 </div>
+        <div class="feature col" style="margin: 1.8rem">
+            <h2 style="color: black">딩동댕 원룸</h2>
+            <img src="https://images.homify.com/c_fill,f_auto,q_0,w_740/v1525840246/p/photo/image/2551679/4-1.jpg" style="width:400; height:400">
+            <br>소개<br>
+            <p style="color: gray; width: 45rem">
+            딩동댕원룸은 조치원 서창리에 있는 원룸입니다. 세탁기, TV, 냉장고, 전자레인지 등 여러 옵션이 구비되어 있으며 매달 관리비는 없습니다.
+            </p>
+        </div>
+        <div class="feature col" style="margin: 1.8rem">
+            <h2 style="color: black">댕동딩 원룸</h2>
+            <img src="https://t1.daumcdn.net/liveboard/ziptoss/5ad793a6783b4f43bd6641320e3665a9.png" style="width:400; height:400">
+            <br>소개<br>
+            <p style="color: gray; width: 45rem">
+            댕동딩원룸은 조치원 침산리에 있는 원룸입니다. 세탁기, TV, 냉장고, 전자레인지 등 여러 옵션이 구비되어 있으며 매달 관리비는 3만원입니다.
+            </p>
+        </div>
 <br><br>
 {% include 'page.html' %}
 {% endblock %}
