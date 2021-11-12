@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+원룸 명 : {{target_room.name}}<br>
+
+<!--목록 가기-->
+<a href="{% url 'roomapp:list' %}">목록</a>
+
+{% endblock %}
