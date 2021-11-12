@@ -55,8 +55,9 @@ INSTALLED_APPS = [
     'boardapp',
     'roomapp',
     'reviewapp',
-
+  
     'ckeditor',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
