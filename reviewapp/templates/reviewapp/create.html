@@ -2,14 +2,15 @@
 {% block content %}
 
 
+<div style="margin: 1.8rem">
+
 <div class="elements-section-headline-wrap yellow">
     <div id="Hero" class="section detail">
         <div class="blog1-headline-wrap detail_page">
-            <div class="size3-text post">Post<br></div>
+            <div class="size3-text post">자취방 리뷰남기기<br></div>
         </div>
     </div>
 </div>
-
 
 <div class="section">
     <div class="w-form">
@@ -18,7 +19,7 @@
             {% csrf_token %}
             <tr>
                 <th>
-                    <label for="id_room">Room:</label>
+                    <label for="id_room">지냈던 자취방 : </label>
                 </th>
                 <td>
                     <input type="text" value="{{user.room.name}}" name="room" maxlength="20" required id="id_room" readonly>
@@ -27,16 +28,15 @@
             <br>
             <tr>
                 <th>
-                    <label for="id_content">Content:</label>
+                    <label for="id_content">리뷰내용 : </label>
                 </th>
                 <td>
                     <input type="text" name="content" maxlength="500" required id="id_content">
                 </td>
             </tr>
-            <input type="submit" value="제출">
+            <input type="submit" value="제출하기">
         </form>
     </div>
-
-
+    </div>
 </div>
 {% endblock %}
